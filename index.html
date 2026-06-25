@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRO_WARFARE // Terminal de Sustentabilidade Tática</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="crt-scanlines"></div>
+    <div class="vignette-overlay"></div>
+    <div class="radar-sweep"></div>
+    
+    <div class="tactical-crosshair" id="crosshair">
+        <div class="dot"></div>
+    </div>
+
+    <header>
+        <div class="top-nav">
+            <div class="sys-status">
+                <span class="status-led blink"></span>
+                <span class="status-text scramble-text" data-value="SYS.ONLINE // UPLINK_SECURE">SYS.ONLINE // UPLINK_SECURE</span>
+            </div>
+            <div class="logo">
+                <h1>AGRO<span class="highlight">_CMD_</span>V2</h1>
+            </div>
+            <div class="coordinates">
+                <span class="scramble-text" data-value="LAT:-15.7801 LON:-47.9292">LAT:-15.7801 LON:-47.9292</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="briefing-zone">
+        <div class="briefing-container">
+            <div class="corner top-l"></div><div class="corner top-r"></div>
+            <div class="corner bot-l"></div><div class="corner bot-r"></div>
+
+            <div class="threat-level">NÍVEL DE AMEAÇA ECOLÓGICA: <span class="danger-text blink">CRÍTICO ALFA</span></div>
+            
+            <h2 class="mega-glitch" data-text="OPERAÇÃO: EQUILÍBRIO DE BIOMAS">OPERAÇÃO: EQUILÍBRIO DE BIOMAS</h2>
+            
+            <div class="typewriter-console">
+                <span class="prefix">root@agro_cmd:~#</span>
+                <p id="typewriter-output"></p>
+                <span class="cursor-block blink"></span>
+            </div>
+
+            <div class="action-panel">
+                <button class="btn-tactical primary" onclick="document.getElementById('telemetry').scrollIntoView();">
+                    <span class="btn-deco">[</span> INICIAR VARREDURA <span class="btn-deco">]</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="telemetry" class="telemetry-zone padding-global">
+        <div class="section-header">
+            <h3><span class="bracket">//</span> MÓDULO DE TELEMETRIA <span class="bracket">//</span></h3>
+            <div class="tech-line"></div>
+        </div>
+
+        <div class="grid-dashboard">
+            <div class="sensor-card">
+                <div class="hex-bg"></div>
+                <div class="sensor-id">SENS_01 // FAMILIAR</div>
+                <div class="data-readout">
+                    <span class="counter" data-target="70">0</span><span class="unit">%</span>
+                </div>
+                <h4>SUBSISTÊNCIA & SEGURANÇA</h4>
+                <p>Monitoramento ativo da agricultura familiar. Setor responsável por manter a logística de abastecimento de curto alcance operante. Tática principal: Policultivo diversificado.</p>
+                <div class="progress-track">
+                    <div class="progress-bar green-bar" style="--target: 70%"></div>
+                </div>
+            </div>
+
+            <div class="sensor-card">
+                <div class="hex-bg"></div>
+                <div class="sensor-id">SENS_02 // AGRO_MEC</div>
+                <div class="data-readout">
+                    <span class="counter" data-target="25">0</span><span class="unit">%</span>
+                </div>
+                <h4>POTÊNCIA MACROECONÔMICA</h4>
+                <p>Força tarefa focada em commodities. Uso intenso de IoT e maquinário pesado. Requer alto consumo de água, mas sustenta o Produto Interno Bruto (PIB) nacional.</p>
+                <div class="progress-track">
+                    <div class="progress-bar yellow-bar" style="--target: 25%"></div>
+                </div>
+            </div>
+
+            <div class="sensor-card">
+                <div class="hex-bg"></div>
+                <div class="sensor-id">SENS_03 // BIO_SHIELD</div>
+                <div class="data-readout">
+                    <span class="counter" data-target="33">0</span><span class="unit">%</span>
+                </div>
+                <h4>RESERVA FLORESTAL LEGAL</h4>
+                <p>Zonas de contenção ambiental localizadas dentro de propriedades privadas. Agem como escudos biológicos para retenção de carbono e proteção de mananciais.</p>
+                <div class="progress-track">
+                    <div class="progress-bar blue-bar" style="--target: 33%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flanks-zone padding-global">
+        <div class="flank-container">
+            <div class="flank-card border-green">
+                <div class="target-box">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=800&q=80" alt="Agricultura Familiar">
+                    <div class="sniper-reticle"></div>
+                </div>
+                <div class="flank-info">
+                    <span class="tag tag-green scramble-text" data-value="INFANTARIA LIGEIRA">INFANTARIA LIGEIRA</span>
+                    <h3>Agricultura de Base Ecológica</h3>
+                    <p class="intel-text">Estratégia de baixo impacto focada na ciclagem de nutrientes e redução de compostos sintéticos. Alta resiliência contra pragas locais devido à quebra de monocultura.</p>
+                    <ul class="spec-list">
+                        <li>> Rotação Biológica: ATIVADA</li>
+                        <li>> Uso de Defensivos: MÍNIMO</li>
+                        <li>> Alcance Logístico: REGIONAL</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flank-card border-yellow">
+                <div class="target-box">
+                    <img src="https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=800&q=80" alt="Agronegócio">
+                    <div class="sniper-reticle red-reticle"></div>
+                </div>
+                <div class="flank-info">
+                    <span class="tag tag-yellow scramble-text" data-value="ARTILHARIA PESADA">ARTILHARIA PESADA</span>
+                    <h3>Agronegócio de Alta Precisão</h3>
+                    <p class="intel-text">Operação de escala brutal. Utiliza mapeamento por drone e satélite para otimizar cada metro quadrado. Capacidade massiva de exportação, mas com risco de exaustão do solo se mal calibrado.</p>
+                    <ul class="spec-list">
+                        <li>> Telemetria IoT: ATIVADA</li>
+                        <li>> Uso de Insumos: ALTO / CALCULADO</li>
+                        <li>> Alcance Logístico: GLOBAL</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="engage" class="engage-zone padding-global">
+        <div class="command-deck">
+            <div class="deck-left">
+                <h3 class="scramble-text" data-value="AUTORIZAÇÃO DE COMANDO">AUTORIZAÇÃO DE COMANDO</h3>
+                <p class="directive-text">Identificada instabilidade no quadrante agrícola 7. Selecione o protocolo de contenção imediata. ATENÇÃO: Suas escolhas alterarão a integridade do bioma.</p>
+                
+                <div class="btn-group">
+                    <button class="cmd-btn" onclick="executarComando('ALFA')">
+                        <span class="btn-id">[DIR_ALFA]</span> EXPANSÃO AGRESSIVA SOBRE MATAS NATIVAS
+                    </button>
+                    <button class="cmd-btn" onclick="executarComando('BRAVO')">
+                        <span class="btn-id">[DIR_BRAVO]</span> ATIVAR PROTOCOLO ILPF (INTEGRAÇÃO LAVOURA-PECUÁRIA-FLORESTA)
+                    </button>
+                    <button class="cmd-btn" onclick="executarComando('CHARLIE')">
+                        <span class="btn-id">[DIR_CHARLIE]</span> BOMBARDEIO QUÍMICO SINTÉTICO PARA SAÍDA RÁPIDA
+                    </button>
+                </div>
+            </div>
+
+            <div class="deck-right">
+                <div class="terminal-screen" id="feedback-screen">
+                    <div class="static-noise"></div>
+                    <p class="waiting-prompt blink">Aguardando inserção de código de comando operativo...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>DOC. ID: <span class="highlight">#000-CLASSIFIED-99</span></div>
+            <div>STATUS: <span class="green-text">SISTEMA ESTÁVEL</span></div>
+            <div>CRIPTOGRAFIA: AES-256 GCM</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
