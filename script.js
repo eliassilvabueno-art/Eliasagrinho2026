@@ -1,4 +1,4 @@
-// --- 1. CONTROLE DE MIRA (CROSSHAIR HUD) ---
+// --- SISTEMA DE RASTREAMENTO TÁTICO (CURSOR SNIPER) ---
 const crosshair = document.getElementById('crosshair');
 
 document.addEventListener('mousemove', (e) => {
@@ -6,22 +6,21 @@ document.addEventListener('mousemove', (e) => {
     crosshair.style.top = `${e.clientY}px`;
 });
 
-// Resposta tática de clique (recoil)
+// Feedback visual de gatilho/clique
 document.addEventListener('mousedown', () => {
-    crosshair.style.transform = 'translate(-50%, -50%) scale(0.7)';
-    crosshair.style.borderColor = 'var(--alert-red)';
-    crosshair.style.boxShadow = '0 0 15px var(--alert-red)';
+    crosshair.style.transform = 'translate(-50%, -50%) scale(0.6)';
+    crosshair.style.borderColor = 'var(--alert-red)'; // Pisca vermelho ao atirar/clicar
 });
 document.addEventListener('mouseup', () => {
     crosshair.style.transform = 'translate(-50%, -50%) scale(1)';
-    crosshair.style.borderColor = 'var(--neon-green)';
-    crosshair.style.boxShadow = '0 0 8px var(--neon-green)';
+    crosshair.style.borderColor = 'var(--neon-green)'; // Retorna ao verde estabilizado
 });
 
-// --- 2. MOTOR DE CRIPTOGRAFIA (SCRAMBLE TEXT) ---
-const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>[]{}';
+// --- ANIMAÇÃO DE DESCRIPTOGRAFIA (SCRAMBLE TEXT) ---
+// Transforma elementos com a classe .scramble-text em um efeito estilo "Matrix"
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>';
 
-function scrambleTextEffect(element, finalValue, duration = 1200) {
+function scrambleTextEffect(element, finalValue, duration = 1000) {
     let iteration = 0;
     const maxIterations = finalValue.length;
     const intervalTime = duration / maxIterations;
@@ -32,35 +31,32 @@ function scrambleTextEffect(element, finalValue, duration = 1200) {
         element.innerText = finalValue
             .split("")
             .map((letter, index) => {
-                if (index < iteration) {
-                    return finalValue[index]; // Revela a letra correta
-                }
-                return chars[Math.floor(Math.random() * chars.length)]; // Letra aleatória
+                if(index < iteration) return finalValue[index];
+                return chars[Math.floor(Math.random() * chars.length)];
             })
             .join("");
 
         if (iteration >= maxIterations) {
             clearInterval(element.scrambleInterval);
         }
-        iteration += 1 / 2.5; // Ajuste fino da velocidade de revelação
+        iteration += 1 / 2; // Velocidade da revelação das letras corretas
     }, intervalTime);
 }
 
-// Aplica o efeito em todas as tags com classe 'scramble-text'
+// Inicializa a descriptografia em elementos de interface e ao passar o mouse
 document.querySelectorAll('.scramble-text').forEach(el => {
     const finalVal = el.getAttribute('data-value');
-    
-    // Anima ao carregar a página
+    // Anima no load da página
     scrambleTextEffect(el, finalVal, 1500);
     
-    // Refaz o efeito ao passar o mouse por cima
+    // Anima novamente ao fazer hover
     el.addEventListener('mouseover', () => scrambleTextEffect(el, finalVal, 800));
 });
 
 
-// --- 3. TRANSMISSÃO DE INTELIGÊNCIA (TYPEWRITER EFFECT) ---
+// --- TYPEWRITER CONSOLE LOG (BRIEFING) ---
 const outputScreen = document.getElementById('typewriter-output');
-const briefingIntel = ">> INICIANDO DOWNLOAD DE DIRETRIZES... O cenário agro-global de 2026 exige convergência absoluta. O isolamento entre o manejo ancestral (familiar) e a engenharia cibernética (larga escala) é obsoleto. A missão central é fundir a biodiversidade da rotação de culturas com a escalabilidade dos drones e sensores IoT de precisão milimétrica. Engaje o banco de dados para mais detalhes.";
+const briefingIntel = "Análise detectou vulnerabilidades críticas no uso da terra. A diretriz exige a neutralização imediata da degradação biológica unindo táticas de agricultura de preservação familiar com a precisão cibernética do agronegócio de alta escala. Inicie a varredura para extrair os dados e proceder com a escolha de contenção.";
 
 let charIndex = 0;
 
@@ -68,112 +64,95 @@ function typeWriterIntel() {
     if (charIndex < briefingIntel.length) {
         outputScreen.innerHTML += briefingIntel.charAt(charIndex);
         charIndex++;
-        
-        // Randomiza o tempo para simular digitação humana/processamento antigo
-        let speed = Math.random() * (45 - 15) + 15; 
+        // Velocidade irregular simula transmissão de rádio/teleprinter
+        let speed = Math.random() * (40 - 10) + 10; 
         setTimeout(typeWriterIntel, speed);
     }
 }
 
 
-// --- 4. TELEMETRIA ESTATÍSTICA (INTERSECTION OBSERVER) ---
-// Observa quando os números aparecem na tela para começar a contar
+// --- INTERSECTION OBSERVER (NÚMEROS CONTANDO E BARRAS CRESCENDO) ---
 const animateCountersAndBars = (entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const container = entry.target;
 
-            // Animação dos Números
+            // 1. Número animado subindo até o alvo
             const counterEl = container.querySelector('.counter');
             const targetNum = parseInt(counterEl.getAttribute('data-target'));
-            let currentNum = 0;
-            const duration = 2500; // 2.5 segundos
+            let startNum = 0;
+            const duration = 2000;
             const incrementTime = Math.abs(Math.floor(duration / targetNum));
             
             const timer = setInterval(() => {
-                currentNum += 1;
-                counterEl.textContent = currentNum;
-                if (currentNum >= targetNum) {
-                    clearInterval(timer);
-                    counterEl.textContent = targetNum; // Garante o número exato no final
-                }
+                startNum += 1;
+                counterEl.textContent = startNum;
+                if (startNum >= targetNum) clearInterval(timer);
             }, incrementTime);
 
-            // Animação das Barras de Progresso
+            // 2. Animação da barra de progresso (Injeta o Width)
             const progressBar = container.querySelector('.progress-bar');
-            if (progressBar) {
-                const targetWidth = progressBar.style.getPropertyValue('--target');
-                progressBar.style.width = targetWidth;
-            }
+            const targetWidth = progressBar.style.getPropertyValue('--target');
+            progressBar.style.width = targetWidth;
 
-            // Desativa a observação deste elemento após rodar 1 vez
+            // Evita rodar a animação novamente
             observer.unobserve(container);
         }
     });
 };
 
-const observerTelemetria = new IntersectionObserver(animateCountersAndBars, { threshold: 0.3 });
+const observerTelemetria = new IntersectionObserver(animateCountersAndBars, { threshold: 0.2 });
 document.querySelectorAll('.sensor-card').forEach(card => observerTelemetria.observe(card));
 
 
-// --- 5. INICIALIZAÇÃO DE SISTEMA ---
+// --- INICIALIZAÇÃO GERAL ---
 window.onload = () => {
-    setTimeout(typeWriterIntel, 1000); // Aguarda 1s para iniciar o Typewriter
+    setTimeout(typeWriterIntel, 1000); // Começa a digitar após 1 segundo
 };
 
 
-// --- 6. CONSOLE TÁTICO INTERATIVO (ÁRVORE DE DECISÃO) ---
+// --- SISTEMA DE ENGAJAMENTO (CONSOLE TÁTICO) ---
 function executarComando(diretriz) {
-    const feedbackScreen = document.querySelector('#feedback-screen .terminal-content');
+    const feedbackScreen = document.getElementById('feedback-screen');
     
-    // Feedback visual imediato: Processando
-    feedbackScreen.innerHTML = `<span style="color: var(--warning-yellow);" class="blink">PROCESSANDO DIRETRIZ ${diretriz}... ESTABELECENDO UPLINK COM SATÉLITES...</span>`;
+    // Efeito de glitch de digitação para a resposta
+    feedbackScreen.innerHTML = `<span style="color: var(--warning-yellow);">PROCESSANDO DIRETRIZ ${diretriz}...</span>`;
     
-    // Delay simulando tempo de processamento de IA
     setTimeout(() => {
         let htmlResponse = "";
 
         if (diretriz === 'ALFA') {
             htmlResponse = `
-                <div style="animation: glitch 0.3s 2;">
-                    <h4 style="color: var(--alert-red); font-size: 1.2rem; margin-bottom: 10px;">[ REJEITADO ] PROTOCOLO DE DESMATAMENTO ALFA</h4>
-                    <p style="color: #fff; margin-bottom: 10px;">
-                        A expansão sobre a reserva nativa rompeu a barreira física que protegia os mananciais hídricos. 
-                        <strong>Consequência imediata:</strong> Seca extrema na safra seguinte devido à alteração no ciclo de chuvas (Rios Voadores comprometidos).
+                <div style="animation: glitch 0.2s 3;">
+                    <h4 style="color: var(--alert-red); font-size: 1.2rem; margin-bottom: 10px;">[ ERRO FATAL ] PROTOCOLO ALFA REJEITADO</h4>
+                    <p style="color: #fff; line-height: 1.5; font-size: 0.95rem;">
+                        Avanço sobre áreas virgens gerou erosão incontrolável. Sensores indicam perda total da malha hídrica local.<br><br>
+                        <span style="color: var(--warning-yellow);">> STATUS: FALHA CRÍTICA. MISSÃO ABORTADA.</span>
                     </p>
-                    <span style="color: var(--alert-red); font-weight: bold;">> STATUS: FALTA CRÍTICA ESTRUTURAL. COLAPSO ECONÔMICO IMINENTE.</span>
                 </div>
             `;
         } else if (diretriz === 'BRAVO') {
             htmlResponse = `
                 <div>
-                    <h4 style="color: var(--neon-green); font-size: 1.2rem; margin-bottom: 10px;">[ APROVADO ] PROTOCOLO DE INTENSIFICAÇÃO SUSTENTÁVEL</h4>
-                    <p style="color: #fff; margin-bottom: 10px;">
-                        A aplicação de Plantio Direto (palhada sobre o solo) preservou a umidade. Os drones realizaram a aplicação de bioinsumos com taxa variável. A produção aumentou 35% sem a necessidade de avançar 1 metro em área de floresta.
+                    <h4 style="color: var(--neon-green); font-size: 1.2rem; margin-bottom: 10px;">[ ACESSO CONCEDIDO ] PROTOCOLO ILPF ATIVO</h4>
+                    <p style="color: #fff; line-height: 1.5; font-size: 0.95rem;">
+                        A integração de lavoura, pecuária e biomas recuperou o microbioma do solo. A sustentabilidade foi elevada em 85% e as margens de suprimentos estão estabilizadas.<br><br>
+                        <span style="color: var(--neon-green);">> STATUS: MISSÃO CUMPRIDA. EQUILÍBRIO ALCANÇADO.</span>
                     </p>
-                    <span style="color: var(--neon-green); font-weight: bold;">> STATUS: MISSÃO CUMPRIDA. EQUILÍBRIO AGROECOLÓGICO ALCANÇADO.</span>
                 </div>
             `;
         } else if (diretriz === 'CHARLIE') {
             htmlResponse = `
                 <div>
-                    <h4 style="color: var(--warning-yellow); font-size: 1.2rem; margin-bottom: 10px;">[ ADVERTÊNCIA TÁTICA ] BOMBARDERIO QUÍMICO</h4>
-                    <p style="color: #fff; margin-bottom: 10px;">
-                        O uso excessivo de adubo NPK (Nitrogênio, Fósforo, Potássio) gerou um pico produtivo rápido, mas as chuvas fortes lixiviaram (lavaram) o excesso de produtos químicos para os rios locais (processo de eutrofização). O solo perdeu microbiota vital.
+                    <h4 style="color: var(--warning-yellow); font-size: 1.2rem; margin-bottom: 10px;">[ AVISO TÁTICO ] IMPACTO COLATERAL DETECTADO</h4>
+                    <p style="color: #fff; line-height: 1.5; font-size: 0.95rem;">
+                        O ataque de choque químico acelerou a colheita, mas sensores indicam contaminação grave nos lençóis freáticos. A dependência do quadrante por aditivos subiu para 100%.<br><br>
+                        <span style="color: var(--alert-red);">> STATUS: VULNERABILIDADE ESTRUTURAL IMINENTE.</span>
                     </p>
-                    <span style="color: var(--warning-yellow); font-weight: bold;">> STATUS: VULNERABILIDADE ALTA. DEPENDÊNCIA FINANCEIRA DE INSUMOS IMPORTADOS.</span>
                 </div>
             `;
         }
 
-        // Insere a resposta processada no terminal
         feedbackScreen.innerHTML = htmlResponse;
-        
-        // Aplica o efeito de scramble nas tags h4 geradas dinamicamente
-        const dynamicHeader = feedbackScreen.querySelector('h4');
-        if(dynamicHeader) {
-            scrambleTextEffect(dynamicHeader, dynamicHeader.innerText, 800);
-        }
-
-    }, 1500); // 1.5 segundos de delay militar
+    }, 800); // Delay simulando processamento do terminal
 }
