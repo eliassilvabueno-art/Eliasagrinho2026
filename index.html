@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGRO_CMD_V3 // Tactical Data Center</title>
+    <title>AGRO_WARFARE // Terminal de Sustentabilidade Tática</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -21,10 +20,10 @@
         <div class="top-nav">
             <div class="sys-status">
                 <span class="status-led blink"></span>
-                <span class="scramble-text" data-value="SYS.ONLINE // UPLINK_SECURE_2026">SYS.ONLINE // UPLINK_SECURE_2026</span>
+                <span class="status-text scramble-text" data-value="SYS.ONLINE // UPLINK_SECURE">SYS.ONLINE // UPLINK_SECURE</span>
             </div>
             <div class="logo">
-                <h1>AGRO<span class="highlight">_CMD_</span>V3</h1>
+                <h1>AGRO<span class="highlight">_CMD_</span>V2</h1>
             </div>
             <div class="coordinates">
                 <span class="scramble-text" data-value="LAT:-15.7801 LON:-47.9292">LAT:-15.7801 LON:-47.9292</span>
@@ -32,14 +31,14 @@
         </div>
     </header>
 
-    <section class="briefing-zone padding-global">
+    <section class="briefing-zone">
         <div class="briefing-container">
             <div class="corner top-l"></div><div class="corner top-r"></div>
             <div class="corner bot-l"></div><div class="corner bot-r"></div>
 
-            <div class="threat-level">OBJETIVO ESTRATÉGICO: <span class="green-text blink">SEGURANÇA ALIMENTAR GLOBAL</span></div>
+            <div class="threat-level">NÍVEL DE AMEAÇA ECOLÓGICA: <span class="danger-text blink">CRÍTICO ALFA</span></div>
             
-            <h2 class="mega-glitch" data-text="DIRETRIZ DE OPERAÇÕES AGRÁRIAS">DIRETRIZ DE OPERAÇÕES AGRÁRIAS</h2>
+            <h2 class="mega-glitch" data-text="OPERAÇÃO: EQUILÍBRIO DE BIOMAS">OPERAÇÃO: EQUILÍBRIO DE BIOMAS</h2>
             
             <div class="typewriter-console">
                 <span class="prefix">root@agro_cmd:~#</span>
@@ -47,110 +46,96 @@
                 <span class="cursor-block blink"></span>
             </div>
 
-            <div class="intel-dossier">
-                <h3 class="scramble-text" data-value="> RESUMO DA SITUAÇÃO [SITREP]">> RESUMO DA SITUAÇÃO [SITREP]</h3>
-                <p>A demanda global por biomassa, energia e alimentos exige um aumento produtivo de 60% até 2050. No entanto, a expansão horizontal indiscriminada (desmatamento) compromete as bacias hidrográficas e o regime de chuvas, essenciais para a própria agricultura. A solução tática atual baseia-se na <strong>Intensificação Sustentável</strong>: produzir mais por hectare utilizando tecnologia militar adaptada (drones, satélites) e biologia avançada.</p>
-            </div>
-
             <div class="action-panel">
-                <button class="btn-tactical" onclick="document.getElementById('database').scrollIntoView();">
-                    <span class="btn-deco">[</span> ACESSAR BANCO DE DADOS <span class="btn-deco">]</span>
+                <button class="btn-tactical primary" onclick="document.getElementById('telemetry').scrollIntoView();">
+                    <span class="btn-deco">[</span> INICIAR VARREDURA <span class="btn-deco">]</span>
                 </button>
-            </div>
-        </div>
-    </section>
-
-    <section id="database" class="intel-zone padding-global">
-        <div class="section-header">
-            <h3><span class="bracket">//</span> ARQUIVO DE TECNOLOGIAS E VETORES <span class="bracket">//</span></h3>
-            <div class="tech-line"></div>
-        </div>
-
-        <div class="grid-intel">
-            <div class="intel-card border-green">
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=800&q=80" alt="Agricultura Familiar">
-                    <div class="hud-overlay-img">REC_ID: 001 // FAMILIAR</div>
-                </div>
-                <div class="card-content">
-                    <span class="tag tag-green scramble-text" data-value="BASE NUTRICIONAL">BASE NUTRICIONAL</span>
-                    <h4>Agricultura Familiar & Policultivo</h4>
-                    <p>Responsável por colocar cerca de 70% da comida na mesa da população interna. Caracteriza-se por propriedades menores, mão de obra familiar e alta diversidade de cultivos (feijão, mandioca, hortaliças, leite).</p>
-                    <ul class="spec-list">
-                        <li><strong>Vantagem Tática:</strong> Alta resiliência econômica local e ciclagem natural de nutrientes pela rotação constante.</li>
-                        <li><strong>Desafio:</strong> Dificuldade de acesso a crédito e maquinário autônomo.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="intel-card border-yellow">
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=800&q=80" alt="Agricultura de Precisão">
-                    <div class="hud-overlay-img">REC_ID: 002 // PRECISION_AG</div>
-                </div>
-                <div class="card-content">
-                    <span class="tag tag-yellow scramble-text" data-value="ARTILHARIA PESADA">ARTILHARIA PESADA</span>
-                    <h4>Agricultura de Precisão & IoT</h4>
-                    <p>Uso de tratores guiados por GPS RTX (erro de apenas 2cm), drones para pulverização cirúrgica e sensores de solo. Cada gota de água e grama de fertilizante é calculada por algoritmos para maximizar a colheita de commodities (soja, milho, algodão).</p>
-                    <ul class="spec-list">
-                        <li><strong>Vantagem Tática:</strong> Escala massiva. Reduz o desperdício de químicos em até 40%.</li>
-                        <li><strong>Desafio:</strong> Alto custo de implantação e dependência de infraestrutura de rede (5G no campo).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="intel-card border-blue">
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Bioinsumos">
-                    <div class="hud-overlay-img">REC_ID: 003 // BIO_TECH</div>
-                </div>
-                <div class="card-content">
-                    <span class="tag tag-blue scramble-text" data-value="GUERRA BIOLÓGICA">GUERRA BIOLÓGICA</span>
-                    <h4>Bioinsumos e Controle Biológico</h4>
-                    <p>Substituição de agrotóxicos sintéticos por inimigos naturais (fungos, bactérias e vespas parasitas). O Brasil é pioneiro na Fixação Biológica de Nitrogênio (FBN), usando bactérias que capturam nitrogênio do ar para a raiz da planta, economizando bilhões em fertilizantes importados.</p>
-                    <ul class="spec-list">
-                        <li><strong>Vantagem Tática:</strong> Solo vivo, sem contaminação do lençol freático, produtos mais seguros.</li>
-                        <li><strong>Desafio:</strong> Logística refrigerada e manejo técnico especializado.</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
 
     <section id="telemetry" class="telemetry-zone padding-global">
         <div class="section-header">
-            <h3><span class="bracket">//</span> MÓDULO DE TELEMETRIA ESTATÍSTICA <span class="bracket">//</span></h3>
+            <h3><span class="bracket">//</span> MÓDULO DE TELEMETRIA <span class="bracket">//</span></h3>
+            <div class="tech-line"></div>
         </div>
 
         <div class="grid-dashboard">
             <div class="sensor-card">
-                <div class="sensor-id">METRICA_ALFA // EXPORTAÇÃO</div>
+                <div class="hex-bg"></div>
+                <div class="sensor-id">SENS_01 // FAMILIAR</div>
                 <div class="data-readout">
-                    <span class="counter" data-target="27">0</span><span class="unit">%</span>
+                    <span class="counter" data-target="70">0</span><span class="unit">%</span>
                 </div>
-                <h4>PARTICIPAÇÃO NO PIB</h4>
-                <p>Representatividade do agronegócio na economia nacional, sustentando a balança comercial através de cadeias longas de produção.</p>
-                <div class="progress-track"><div class="progress-bar yellow-bar" style="--target: 27%"></div></div>
+                <h4>SUBSISTÊNCIA & SEGURANÇA</h4>
+                <p>Monitoramento ativo da agricultura familiar. Setor responsável por manter a logística de abastecimento de curto alcance operante. Tática principal: Policultivo diversificado.</p>
+                <div class="progress-track">
+                    <div class="progress-bar green-bar" style="--target: 70%"></div>
+                </div>
             </div>
 
             <div class="sensor-card">
-                <div class="sensor-id">METRICA_BRAVO // TECNOLOGIA ILPF</div>
+                <div class="hex-bg"></div>
+                <div class="sensor-id">SENS_02 // AGRO_MEC</div>
                 <div class="data-readout">
-                    <span class="counter" data-target="35">0</span><span class="unit">M ha</span>
+                    <span class="counter" data-target="25">0</span><span class="unit">%</span>
                 </div>
-                <h4>META DE ÁREA INTEGRADA</h4>
-                <p>Milhões de hectares previstos para adotar a Integração Lavoura-Pecuária-Floresta (ILPF) até 2030, recuperando pastos degradados.</p>
-                <div class="progress-track"><div class="progress-bar green-bar" style="--target: 35%"></div></div>
+                <h4>POTÊNCIA MACROECONÔMICA</h4>
+                <p>Força tarefa focada em commodities. Uso intenso de IoT e maquinário pesado. Requer alto consumo de água, mas sustenta o Produto Interno Bruto (PIB) nacional.</p>
+                <div class="progress-track">
+                    <div class="progress-bar yellow-bar" style="--target: 25%"></div>
+                </div>
             </div>
 
             <div class="sensor-card">
-                <div class="sensor-id">METRICA_CHARLIE // BIOINSUMOS</div>
+                <div class="hex-bg"></div>
+                <div class="sensor-id">SENS_03 // BIO_SHIELD</div>
                 <div class="data-readout">
-                    <span class="counter" data-target="40">0</span><span class="unit">%</span>
+                    <span class="counter" data-target="33">0</span><span class="unit">%</span>
                 </div>
-                <h4>CRESCIMENTO ANUAL</h4>
-                <p>Taxa de adoção de defesas biológicas nas fazendas. O mercado cresce de forma exponencial como alternativa aos químicos.</p>
-                <div class="progress-track"><div class="progress-bar blue-bar" style="--target: 40%"></div></div>
+                <h4>RESERVA FLORESTAL LEGAL</h4>
+                <p>Zonas de contenção ambiental localizadas dentro de propriedades privadas. Agem como escudos biológicos para retenção de carbono e proteção de mananciais.</p>
+                <div class="progress-track">
+                    <div class="progress-bar blue-bar" style="--target: 33%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flanks-zone padding-global">
+        <div class="flank-container">
+            <div class="flank-card border-green">
+                <div class="target-box">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?auto=format&fit=crop&w=800&q=80" alt="Agricultura Familiar">
+                    <div class="sniper-reticle"></div>
+                </div>
+                <div class="flank-info">
+                    <span class="tag tag-green scramble-text" data-value="INFANTARIA LIGEIRA">INFANTARIA LIGEIRA</span>
+                    <h3>Agricultura de Base Ecológica</h3>
+                    <p class="intel-text">Estratégia de baixo impacto focada na ciclagem de nutrientes e redução de compostos sintéticos. Alta resiliência contra pragas locais devido à quebra de monocultura.</p>
+                    <ul class="spec-list">
+                        <li>> Rotação Biológica: ATIVADA</li>
+                        <li>> Uso de Defensivos: MÍNIMO</li>
+                        <li>> Alcance Logístico: REGIONAL</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flank-card border-yellow">
+                <div class="target-box">
+                    <img src="https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=800&q=80" alt="Agronegócio">
+                    <div class="sniper-reticle red-reticle"></div>
+                </div>
+                <div class="flank-info">
+                    <span class="tag tag-yellow scramble-text" data-value="ARTILHARIA PESADA">ARTILHARIA PESADA</span>
+                    <h3>Agronegócio de Alta Precisão</h3>
+                    <p class="intel-text">Operação de escala brutal. Utiliza mapeamento por drone e satélite para otimizar cada metro quadrado. Capacidade massiva de exportação, mas com risco de exaustão do solo se mal calibrado.</p>
+                    <ul class="spec-list">
+                        <li>> Telemetria IoT: ATIVADA</li>
+                        <li>> Uso de Insumos: ALTO / CALCULADO</li>
+                        <li>> Alcance Logístico: GLOBAL</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -158,18 +143,18 @@
     <section id="engage" class="engage-zone padding-global">
         <div class="command-deck">
             <div class="deck-left">
-                <h3 class="scramble-text" data-value="AUTORIZAÇÃO DE COMANDO DIRETO">AUTORIZAÇÃO DE COMANDO DIRETO</h3>
-                <p class="directive-text">CENÁRIO: A expansão populacional no Setor 7 exige aumento de 30% na produção de grãos. O solo atual apresenta sinais de exaustão leve. Selecione a ordem de engajamento operacional. Suas escolhas alterarão o ecossistema.</p>
+                <h3 class="scramble-text" data-value="AUTORIZAÇÃO DE COMANDO">AUTORIZAÇÃO DE COMANDO</h3>
+                <p class="directive-text">Identificada instabilidade no quadrante agrícola 7. Selecione o protocolo de contenção imediata. ATENÇÃO: Suas escolhas alterarão a integridade do bioma.</p>
                 
                 <div class="btn-group">
                     <button class="cmd-btn" onclick="executarComando('ALFA')">
-                        <span class="btn-id">[DIR_ALFA]</span> DESMATAR ÁREA RESERVADA PARA EXPANDIR O PLANTIO TRADICIONAL
+                        <span class="btn-id">[DIR_ALFA]</span> EXPANSÃO AGRESSIVA SOBRE MATAS NATIVAS
                     </button>
                     <button class="cmd-btn" onclick="executarComando('BRAVO')">
-                        <span class="btn-id">[DIR_BRAVO]</span> APLICAR PLANTIO DIRETO, ROTAÇÃO DE CULTURAS E DRONES DE PRECISÃO
+                        <span class="btn-id">[DIR_BRAVO]</span> ATIVAR PROTOCOLO ILPF (INTEGRAÇÃO LAVOURA-PECUÁRIA-FLORESTA)
                     </button>
                     <button class="cmd-btn" onclick="executarComando('CHARLIE')">
-                        <span class="btn-id">[DIR_CHARLIE]</span> TRIPLICAR A DOSE DE FERTILIZANTE QUÍMICO SINTÉTICO (NPK) NO SOLO ATUAL
+                        <span class="btn-id">[DIR_CHARLIE]</span> BOMBARDEIO QUÍMICO SINTÉTICO PARA SAÍDA RÁPIDA
                     </button>
                 </div>
             </div>
@@ -177,9 +162,7 @@
             <div class="deck-right">
                 <div class="terminal-screen" id="feedback-screen">
                     <div class="static-noise"></div>
-                    <div class="terminal-content">
-                        <p class="waiting-prompt blink">_Aguardando inserção de código de comando...</p>
-                    </div>
+                    <p class="waiting-prompt blink">Aguardando inserção de código de comando operativo...</p>
                 </div>
             </div>
         </div>
@@ -187,8 +170,8 @@
 
     <footer>
         <div class="footer-grid">
-            <div>CLASSIFICAÇÃO: <span class="alert-red">TOP SECRET / AGRO-MILITAR</span></div>
-            <div>STATUS: <span class="green-text">MONITORAMENTO CONTÍNUO SAT-7</span></div>
+            <div>DOC. ID: <span class="highlight">#000-CLASSIFIED-99</span></div>
+            <div>STATUS: <span class="green-text">SISTEMA ESTÁVEL</span></div>
             <div>CRIPTOGRAFIA: AES-256 GCM</div>
         </div>
     </footer>
